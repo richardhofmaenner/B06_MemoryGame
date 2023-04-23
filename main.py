@@ -1,11 +1,7 @@
-import tkinter as tk
-from classes.MainWindow import MainWindow
+from screens.StartScreen import StartScreen
 
 def main():
-  root = tk.Tk()
-  root.minsize(600,400)
-  window = MainWindow(root)
-  root.mainloop()
-
+  StartScreen()
+  
 if __name__ == '__main__':
   main()

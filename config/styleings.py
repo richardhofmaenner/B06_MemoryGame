@@ -1,15 +1,23 @@
 import tkinter as tk
 
-h1Style = {'font': ('Helvetica', 25, 'bold')}
+mainBgColor = '#2C2C2C'
+
+h1Style = {
+    'font': ('Helvetica', 25, 'bold'),
+    'bg': mainBgColor,
+    'fg': "#FFFFFF",
+    'borderwidth': '0'
+}
 
 buttonStyle = {
-    'font': ('Helvetica', 15, 'bold'), 
-    'bg': 'white', 
-    'fg': 'black',
-    'borderwidth': 2,
-    'activebackground': 'lightgrey', 
-    'activeforeground': 'black', 
+    'font': ('Modern', 15, 'bold'), 
+    'bg': '#c71585', 
+    'fg': '#999999',
+    'borderwidth': 0,
+    'activebackground': '#ed0b0b', 
+    'activeforeground': '#c71585', 
     'padx': 15,
     'pady': 10,
     'cursor': 'hand2'
 }
+

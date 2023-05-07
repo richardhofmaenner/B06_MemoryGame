@@ -30,9 +30,9 @@ class Gamescreen():
         
         Gamescreen.mainloop() 
         
-    def Createcards(self): ##
-        window = tk.Tk()    
+    ##def Createcards(self): ## ev. separate def?
+    ##    window = tk.Tk()    
         
         
             
-        window.mainloop() 
+    ##    window.mainloop() 

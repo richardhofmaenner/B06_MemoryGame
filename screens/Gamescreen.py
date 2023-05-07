@@ -20,6 +20,10 @@ class Gamescreen():
         startButton = tk.Button(window, text="Start Game", **style.buttonStyle, command=lambda: print("Start Game"))
         startButton.grid(row=1, column=1)
         
+        button = tk.Button( width=10, height=5)
+        
+        
+        
         quitButton = tk.Button(window, text="Quit", **style.buttonStyle, command=lambda: window.destroy())
         quitButton.grid(row=4, column=6)
         
@@ -27,5 +31,7 @@ class Gamescreen():
         
     def Createcards(self): ##
         window = tk.Tk()    
+        
+        
             
         window.mainloop() 

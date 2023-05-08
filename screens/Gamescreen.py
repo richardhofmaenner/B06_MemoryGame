@@ -18,10 +18,10 @@ class Gamescreen():
             window.columnconfigure(y, weight=1)
 
         startButton = tk.Button(window, text="Start Game", **style.buttonStyle, command=lambda: print("Start Game"), width=10, height=3)
-        startButton.grid(row=0, column=1)
+        startButton.grid(row=0, column=0)
         
         quitButton = tk.Button(window, text="Quit", **style.buttonStyle, command=lambda: window.destroy())
-        quitButton.grid(row=6, column=1)
+        quitButton.grid(row=6, column=6)
         
         cardButtons = []
         for i in range(4):

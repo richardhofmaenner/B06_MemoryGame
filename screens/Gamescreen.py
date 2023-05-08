@@ -23,10 +23,13 @@ class Gamescreen():
         quitButton = tk.Button(window, text="Quit", **style.buttonStyle, command=lambda: window.destroy())
         quitButton.grid(row=6, column=1)
         
-        for i in range(4):
-            for j in range(4):
-                cardButton = tk.Button(window, text=f"Button {(i*4)+j+1}", **style.buttonStyle, command=lambda: print("Button {(i*4)+j+1}"), width=10, height=5)
-                cardButton.grid(row=1+i, column=1+j)
+        self.cardButtons = []
+        for i in range(16):
+            row = i // 4 + 1
+            column = i % 4 + 1
+            cardButton = tk.Button(self.window, text=f"Card {i+1}", width=10, height=5, **style.buttonStyle)
+            cardButton.grid(row=row, column=column)
+            self.cardButtons.append(cardButton)
         
         Gamescreen.mainloop() 
         

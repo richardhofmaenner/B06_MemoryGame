@@ -18,7 +18,7 @@ class Gamescreen():
             window3.columnconfigure(y, weight=1)
 
         cardButtons = []
-        for i in range(4):
+        for i in range(16):
             row = i // 4 + 1
             column = i % 4 + 1
             cardButton = tk.Button(self.window3, text=f"Card {i+1}", width=10, height=5)

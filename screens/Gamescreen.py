@@ -27,7 +27,7 @@ class Gamescreen():
         for i in range(4):
             row = i // 4 + 1
             column = i % 4 + 1
-            cardButton = tk.Button(self.window, text=f"Card {i+1}", width=10, height=5, **style.buttonStyle)
+            cardButton = tk.Button(self.window, text=f"Card {i+1}", width=10, height=5)
             cardButton.grid(row=row, column=column)
             cardButtons.append(cardButton)
         

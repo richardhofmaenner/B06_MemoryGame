@@ -31,7 +31,15 @@ class Gamescreen():
         quitButton = tk.Button(window3, text="Quit", **style.buttonStyle, command=lambda: window3.destroy())
         quitButton.grid(row=6, column=6)
         
+    clicks = 0
 
+    def count_clicks(self):
+        global clicks
+        clicks += 1
+        
+        
+        countButton = tk.Button(self.window3, print(f"Total clicks: {clicks}"), width=10, height=3 )
+        countButton.grid(row=0, column=6)
         
         Gamescreen.mainloop() 
         

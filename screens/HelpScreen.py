@@ -6,7 +6,7 @@ import screens.StartScreen
 class HelpScreen():
     def __init__(self):
         window = tk.Tk()
-        window.title("Help Menu")
+        window.title("Hilfemenü")
         window.geometry("600x300")
         window.configure(background=style.mainBgColor)
         
@@ -17,10 +17,10 @@ class HelpScreen():
             window.columnconfigure(y, weight=1)
         
         guideLabel = tk.Label(window, **style.labelStyle, text="Guide:")
-        guideLabel.grid(row=1, column=1)
+        guideLabel.grid(row=0, column=4, sticky=tk.NW)  # Oben rechts
         
-        backButton = tk.Button(window, text="Back", **style.buttonStyle, command= screens.StartScreen.StartScreen)
-        backButton.grid(row=4, column=4)
+        backButton = tk.Button(window, text="Zurück", **style.buttonStyle, command=screens.StartScreen.StartScreen)
+        backButton.grid(row=9, column=2, pady=10)  # In der Mitte unten
         
         window.minsize(600, 400)
         window.maxsize(600, 400)

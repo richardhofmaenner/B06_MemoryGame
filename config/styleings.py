@@ -1,23 +1,33 @@
 import tkinter as tk
 
-mainBgColor = '#2C2C2C'
+mainBgColor = '#F5F5F5'
 
 h1Style = {
     'font': ('Helvetica', 25, 'bold'),
     'bg': mainBgColor,
-    'fg': "#FFFFFF",
-    'borderwidth': '0'
+    'fg': "#333333",
+    'borderwidth': 0
 }
 
 buttonStyle = {
-    'font': ('Modern', 15, 'bold'), 
-    'bg': '#c71585', 
-    'fg': '#999999',
+    'font': ('Arial', 12, 'bold'),
+    'bg': '#4CAF50',
+    'fg': '#FFFFFF',
     'borderwidth': 0,
-    'activebackground': '#ed0b0b', 
-    'activeforeground': '#c71585', 
+    'activebackground': '#45D26F',
+    'activeforeground': '#FFFFFF',
     'padx': 15,
     'pady': 10,
     'cursor': 'hand2'
 }
 
+labelStyle = {
+    'bg': mainBgColor,
+    'fg': '#333333',
+    'font': ('Arial', 14),
+    'padx': 15,
+    'pady': 10,
+    'borderwidth': 2,
+    'relief': 'groove',
+    'highlightcolor': 'green'
+}

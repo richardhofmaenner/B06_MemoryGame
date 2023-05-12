@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import config.styleings as style
+import screens.HelpScreen as HelpScreen
 
 
 class StartScreen():
@@ -23,22 +24,14 @@ class StartScreen():
         startButton = tk.Button(window, text="Start", **style.buttonStyle, command=lambda: print("Start"))
         startButton.grid(row=2, column=1)
         
-        helpbutton = tk.Button(window, text="Help", **style.buttonStyle, command= HelpScreen.HelpWindow)
+        helpbutton = tk.Button(window, text="Help", **style.buttonStyle, command= HelpScreen.HelpScreen)
         helpbutton.grid(row=3, column=1)
         
-        quitButton = tk.Button(window, text="Quit", **style.buttonStyle, command=lambda: window.destroy())
+        quitButton = tk.Button(window, text="Quit", **style.buttonStyle, command=lambda: window.quit())
         quitButton.grid(row=4, column=1)
         
         window.minsize(600, 400)
         window.maxsize(600, 400)
         window.mainloop()
         
-class HelpScreen():
-    def HelpWindow():
-        window2 = tk.Tk()
-        window2.title("Help Menu")
-        window2.geometry("300x200")
-        window2.configure(background=style.mainBgColor)
-        
-        Guidelabel = tk.Label(window2, text="Guide:")
-        Guidelabel.grid(row=2, column=1)
+

@@ -24,7 +24,6 @@ class GameScreen():
         cardButtons = []
 
         for i in range(16):
-
             row = i // 4 + 1
             column = i % 4 + 1
 

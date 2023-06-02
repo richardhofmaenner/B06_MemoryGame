@@ -37,26 +37,6 @@ class StartScreen():
 
     def Gamescreen(self):
         gameScreenWindow = Gamescreen()
-        # window3 = tk.Tk()
-        # window3.title("GameScreen")
-        # window3.geometry("600x300")
-        # window3.configure(background=style.mainBgColor)
-
-        # for x in range(4):
-        #     window3.rowconfigure(x, weight=1)
-
-        # for y in range(6):
-        #     window3.columnconfigure(y, weight=1)
-        
-        # startButton = tk.Button(window3, text="Start Game", **style.buttonStyle, command=lambda: print("Start Game"))
-        # startButton.grid(row=1, column=1)
-        
-        # quitButton = tk.Button(window3, text="Quit", **style.buttonStyle, command=lambda: window3.destroy())
-        # quitButton.grid(row=4, column=6)
-        
-        # window3.minsize(600, 400)
-        # window3.maxsize(600, 400)
-        # window3.mainloop()
 
 
 class HelpScreen():

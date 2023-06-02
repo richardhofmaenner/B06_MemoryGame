@@ -12,7 +12,7 @@ class Gamescreen():
     gameWindow = None
     countButton = None
 
-    def __init__(self): ## 
+    def __init__(self): 
         self.gameWindow = tk.Tk()
         self.gameWindow.title("Game Screen")
         self.gameWindow.geometry("600x400")
@@ -53,7 +53,7 @@ class Gamescreen():
         self.countButton = tk.Button(self.gameWindow, text=f"Click Counts: {self.clicks}", width=10, height=3 )
         self.countButton.grid(row=0, column=5)
 
-        gameWindow.mainloop()
+        self.gameWindow.mainloop()
         
 
 

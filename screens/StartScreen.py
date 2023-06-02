@@ -37,10 +37,9 @@ class StartScreen():
 
     def Gamescreen(self):
         gameScreenWindow = Gamescreen()
-              
+
         # quitButton = tk.Button(window3, text="Quit", **style.buttonStyle, command=lambda: window3.destroy())
         # quitButton.grid(row=4, column=6)
-        
 
 class HelpScreen():
     def HelpWindow():

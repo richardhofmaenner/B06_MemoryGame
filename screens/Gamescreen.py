@@ -1,4 +1,5 @@
 import tkinter as tk
+
 from tkinter import ttk
 import config.styleings as style
 
@@ -39,9 +40,8 @@ class Gamescreen():
         self.countButton = tk.Button(self.gameWindow, text=f"Click Counts: {self.clicks}", width=10, height=3 )
         self.countButton.grid(row=0, column=5)
 
-        self.gameWindow.mainloop()
+        gameWindow.mainloop()
         
-
     def count_clicks(self):
         self.clicks += 1
         self.countButton.config(text=f"Total clicks: {self.clicks}")

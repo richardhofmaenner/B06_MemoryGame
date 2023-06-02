@@ -2,7 +2,7 @@ import tkinter as tk
 
 from tkinter import ttk
 
-import config.styleings as style
+import config.stylings as style
 
 
 

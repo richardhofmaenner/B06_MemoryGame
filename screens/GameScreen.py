@@ -90,11 +90,7 @@ class GameScreen():
 
         if len(self.selectedCards) == 2:
             time.sleep(2)
-            print(f"Card 1 ID: {self.selectedCards[0].customId}")
-            print(f"Card 2 ID: {self.selectedCards[1].customId}")
-            if self.selectedCards[0].customId == self.selectedCards[1].customId:
-                print('A pair has been found.')
-            else:
+            if self.selectedCards[0].customId != self.selectedCards[1].customId:
                 for card in self.selectedCards:
                     card.resetCard()
             self.selectedCards = []
@@ -108,5 +104,4 @@ class GameScreen():
                     isGameFinished = False
             
             if isGameFinished:
-                print('Game finished.')
                 WinnerScreen(self.clicks)

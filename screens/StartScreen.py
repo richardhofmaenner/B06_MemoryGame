@@ -31,6 +31,10 @@ class StartScreen():
                                 **style.buttonStyle, command=self.openGameScreen)
         startButton.grid(row=2, column=1)
 
+        startButton = tk.Button(self.startScreenWindow, text="Multi Player",
+                                **style.buttonStyle, command=self.openMultiGameScreen)
+        startButton.grid(row=3, column=1)
+
         helpbutton = tk.Button(self.startScreenWindow, text="Help",
                                **style.buttonStyle, command=self.openHelpScreen)
         helpbutton.grid(row=4, column=1)

@@ -72,7 +72,7 @@ class GameScreen():
         quitButton.grid(row=6, column=6)
 
         self.triesLabel = tk.Label(
-            self.gameWindow, text="Total clicks: 0", height=4, background=style.mainBgColor,fg=style.mainFgColor
+            self.gameWindow, text="Total tries: 0", height=4, background=style.mainBgColor,fg=style.mainFgColor
         )
         self.triesLabel.grid(row=0, column=5)
 
@@ -89,13 +89,13 @@ class GameScreen():
             self.selectedCards.append(clickedCard)
 
         if len(self.selectedCards) == 2:
-            time.sleep(2)
+            time.sleep(1)
             if self.selectedCards[0].customId != self.selectedCards[1].customId:
                 for card in self.selectedCards:
                     card.resetCard()
             self.selectedCards = []
             self.clicks += 1
-            self.triesLabel.config(text=f"Total Clicks: {self.clicks}")
+            self.triesLabel.config(text=f"Total tries: {self.clicks}")
             self.triesLabel.update()
 
             isGameFinished = True

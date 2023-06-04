@@ -24,4 +24,4 @@ class MultiGameScreen():
 
             imageLabel = tk.Label(self.MultiGameScreenWindow, image=photo)
             imageLabel.image = photo
-            imageLabel.grid(row=10, column=i+3)
+            imageLabel.grid(row=i+2, column=i+1)

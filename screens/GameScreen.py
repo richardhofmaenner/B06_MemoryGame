@@ -8,6 +8,8 @@ import config.stylings as style
 from PIL import Image, ImageTk
 from functools import partial
 
+from screens.WinnerScreen import WinnerScreen
+
 
 class GameScreen():
 
@@ -109,3 +111,4 @@ class GameScreen():
             
             if isGameFinished:
                 print('Game finished.')
+                WinnerScreen(self.clicks)

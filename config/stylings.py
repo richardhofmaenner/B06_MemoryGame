@@ -1,11 +1,12 @@
 import tkinter as tk
 
 mainBgColor = '#2C2C2C'
+mainFgColor = '#FFFFFF'
 
 h1Style = {
     'font': ('Helvetica', 25, 'bold'),
     'bg': mainBgColor,
-    'fg': "#FFFFFF",
+    'fg': mainFgColor,
     'borderwidth': '0'
 }
 
@@ -19,5 +20,11 @@ buttonStyle = {
     'padx': 15,
     'pady': 10,
     'cursor': 'hand2'
+}
+
+textStyle= {
+    'font': ('Modern', 15, 'normal'),
+    'bg': mainBgColor,
+    'fg': mainFgColor
 }
 

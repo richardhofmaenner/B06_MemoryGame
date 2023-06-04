@@ -12,5 +12,5 @@ class MultiGameScreen():
         self.MultiGameScreenWindow.geometry("600x400")
         self.MultiGameScreenWindow.configure(background=style.mainBgColor)
 
-        guideLabel = tk.Label(self.MultiGameScreenWindow, text="Mutlipalyer ist under contruction", **style.h1Style)
-        guideLabel.grid(row=2, column=1)
+        guideLabel = tk.Label(self.MultiGameScreenWindow, text="Mutliplayer ist under contruction", **style.textStyle)
+        guideLabel.grid(row=5, column=1)

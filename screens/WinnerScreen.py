@@ -20,7 +20,7 @@ class WinnerScreen():
 
         textLabel = tk.Label(
             contentFrame, 
-            text=f"You needed {numberOfClicks} to win this game.",
+            text=f"You needed {numberOfClicks} tries to win this game.",
             **style.textStyle
             )
         textLabel.pack()

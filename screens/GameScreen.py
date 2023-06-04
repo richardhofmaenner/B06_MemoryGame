@@ -13,7 +13,7 @@ class GameScreen():
 
     clicks = 0
     gameWindow = None
-    countButton = None
+    triesLabel = None
     placeholderImage = None
     photos = []
     cardButtons = []
@@ -71,10 +71,10 @@ class GameScreen():
         )
         quitButton.grid(row=6, column=6)
 
-        self.countButton = tk.Button(
-            self.gameWindow, text="Total clicks: 0", width=10, height=3
+        self.triesLabel = tk.Label(
+            self.gameWindow, text="Total clicks: 0", height=4, background=style.mainBgColor,fg=style.mainFgColor
         )
-        self.countButton.grid(row=0, column=5)
+        self.triesLabel.grid(row=0, column=5)
 
         self.gameWindow.mainloop()
 
@@ -95,8 +95,8 @@ class GameScreen():
                     card.resetCard()
             self.selectedCards = []
             self.clicks += 1
-            self.countButton.config(text=f"Total Clicks: {self.clicks}")
-            self.countButton.update()
+            self.triesLabel.config(text=f"Total Clicks: {self.clicks}")
+            self.triesLabel.update()
 
             isGameFinished = True
             for card in self.cardButtons:

@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 import time
 import tkinter as tk
@@ -18,8 +19,9 @@ class MultiGameScreen():
         guideLabel = tk.Label(self.MultiGameScreenWindow, text="Mutliplayer ist under contruction", **style.textStyle)
         guideLabel.grid(row=5, column=1)
         
-        for i in range(8):
+        for i in range(1):
+            allImages = os.listdir("images/gameCards")
             imageName = allImages[i]
-            photo = Image.open(f"images/Multipalyer/{murgo1.jpg}")
+            photo = Image.open(f"images/Multipalyer/{imageName}")
             photo = photo.resize((150, 150))
             photo = ImageTk.PhotoImage(photo)

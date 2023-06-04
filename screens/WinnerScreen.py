@@ -2,11 +2,12 @@ import tkinter as tk
 import config.stylings as style
 
 
+
 class WinnerScreen():
 
     winnerScreenWindow = None
 
-    def __init__(self, numberOfClicks):
+    def __init__(self, numberOfClicks, ):           # timetext wie einfügen?
         # create the winner screen window
         self.winnerScreenWindow = tk.Tk()
         self.winnerScreenWindow.title("You have actually won this game!")
@@ -25,5 +26,10 @@ class WinnerScreen():
             text=f"You needed {numberOfClicks} tries to win this game.",
             **style.textStyle
             )
+        #textLabel = tk.Label(                                  ## wie zeitdauer anzeigen lassen?
+        #    contentFrame, 
+        #    text=f"You completed the game in {timeText}.",
+        #    **style.textStyle
+        #)
         textLabel.pack()
 

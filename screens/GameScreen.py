@@ -18,8 +18,13 @@ class GameScreen():
     photos = []
     cardButtons = []
     selectedCards = []
+    endTime = None
 
     def __init__(self):
+        
+        self.startTime = time.time()  # Startzeit erfassen
+        self.endTime = None             # aktuellen Zeitpunkt initialisieren
+        
         # create the game window
         self.gameWindow = tk.Tk()
         self.gameWindow.title("Game Screen")
@@ -85,7 +90,29 @@ class GameScreen():
         )
         self.triesLabel.grid(row=0, column=5)
 
+        # Start der Zeitaktualisierung
+        self.updateTime()
+
         self.gameWindow.mainloop()
+
+    def updateTime(self):
+        if self.endTime is None:  # Wenn das Spiel noch läuft
+            elapsedTime = time.time() - self.startTime  # Berechnung der verstrichenen Zeit
+            minutes = int(elapsedTime // 60)
+            seconds = int(elapsedTime % 60)
+            timeText = f"Time: {minutes:02d}:{seconds:02d}"
+            self.gameWindow.after(1000, self.updateTime)  # Aktualisierung alle 1 Sekunde
+            self.triesLabel.config(text=f"Total tries: {self.clicks}\n{timeText}")
+            self.triesLabel.update()
+        else:
+            # Wenn das Spiel beendet wurde
+            elapsedTime = self.endTime - self.startTime  # Berechnung der Gesamtzeit
+            minutes = int(elapsedTime // 60)
+            seconds = int(elapsedTime % 60)
+            timeText = f"Time: {minutes:02d}:{seconds:02d}"
+            #self.triesLabel.config(text=f"Total tries: {self.clicks}\n{timeText}\n\nCongratulations!\nYou completed the game in {minutes:02d}:{seconds:02d}.")
+            #self.triesLabel.update()
+
 
     def get_clicks_text(self):
         return f"Total Clicks: {self.clicks}"
@@ -119,4 +146,7 @@ class GameScreen():
                     isGameFinished = False
             
             if isGameFinished:
+                self.endTime = time.time()  # Zeit stoppen
+                elapsedTime = self.endTime - self.startTime  # Berechnung der verstrichenen Zeit
                 WinnerScreen(self.clicks)
+                

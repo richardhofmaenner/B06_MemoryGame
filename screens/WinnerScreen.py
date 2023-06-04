@@ -7,11 +7,13 @@ class WinnerScreen():
     winnerScreenWindow = None
 
     def __init__(self, numberOfClicks):
+        # create the winner screen window
         self.winnerScreenWindow = tk.Tk()
         self.winnerScreenWindow.title("You have actually won this game!")
         self.winnerScreenWindow.geometry("600x400")
         self.winnerScreenWindow.configure(background=style.mainBgColor)
 
+        # create a frame and center it in the middle of the window
         contentFrame = tk.Frame(self.winnerScreenWindow, bg=style.mainBgColor)
         contentFrame.place(anchor="center", relx=0.5, rely=0.5)
 

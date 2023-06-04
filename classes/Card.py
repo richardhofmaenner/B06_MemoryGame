@@ -22,11 +22,13 @@ class Card(tk.Button):
 
         super().__init__(**args)
     
+    # reveals the hidden image
     def cardPressed(self):
         self.config(image=self.memoryImage)
         self.isReveald = True
         self.update()
 
+    # hides the "real" image and shows the placeholder again
     def resetCard(self):
         self.config(image=self.placeholderImage)
         self.isReveald = False

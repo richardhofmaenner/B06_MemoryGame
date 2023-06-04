@@ -20,6 +20,7 @@ class GameScreen():
     selectedCards = []
 
     def __init__(self):
+        # create the game window
         self.gameWindow = tk.Tk()
         self.gameWindow.title("Game Screen")
         self.gameWindow.geometry("800x600")
@@ -27,6 +28,7 @@ class GameScreen():
         self.gameWindow.minsize(800, 600)
         self.gameWindow.configure(background=style.mainBgColor)
 
+        # create the grid for positioning the widgets
         for x in range(6):
             self.gameWindow.rowconfigure(x, weight=1)
 
@@ -34,27 +36,33 @@ class GameScreen():
             self.gameWindow.columnconfigure(y, weight=1)
 
         # pick 8 random images from /images/gameCards
+        # 8 images = 16 cards
         allImages = os.listdir("images/gameCards")
         randomImages = []
         random.shuffle(allImages)
 
+        # pick the first 8 images of the shuffled images and prepar them to be used as button image
         for i in range(8):
             imageName = allImages[i]
             photo = Image.open(f"images/gameCards/{imageName}")
             photo = photo.resize((150, 150))
             photo = ImageTk.PhotoImage(photo)
             
+            # the id is used to identify the pairs later on in the game
             cardPhoto = {
                 "photo": photo,
                 "id": imageName,
             }
             randomImages.append(cardPhoto)
 
-        # duplicate the random images
+        # duplicate the prepared images, so we have 16 images / 8 pairs.
         randomImages = randomImages + randomImages
         random.shuffle(randomImages)
 
+        # create the cards on the game board
         for i, image in enumerate(randomImages):
+
+            # calculate the row and column of our game field (4x4 field)
             row = i // 4 + 1
             column = i % 4 + 1
 
@@ -71,6 +79,7 @@ class GameScreen():
         )
         quitButton.grid(row=6, column=6)
 
+        # label for displaying the count of tries to win the game.
         self.triesLabel = tk.Label(
             self.gameWindow, text="Total tries: 0", height=4, background=style.mainBgColor,fg=style.mainFgColor
         )
@@ -81,13 +90,18 @@ class GameScreen():
     def get_clicks_text(self):
         return f"Total Clicks: {self.clicks}"
     
+    # is executed when the a card has been clicked.
     def cardClicked(self, event):
+        # get the clicked card widget
         clickedCard = event.widget
 
+        # check if the card has not already been clicked. 
+        # If the card has already been clicked, just ignore the click.
         if clickedCard not in self.selectedCards:
             clickedCard.cardPressed()
             self.selectedCards.append(clickedCard)
 
+        # when 2 cards are revlead, check if its not a pair and turn the cards back so 2 new cards can be picked.
         if len(self.selectedCards) == 2:
             time.sleep(1)
             if self.selectedCards[0].customId != self.selectedCards[1].customId:
@@ -98,6 +112,7 @@ class GameScreen():
             self.triesLabel.config(text=f"Total tries: {self.clicks}")
             self.triesLabel.update()
 
+            # check if all the cards has been revlead. if so, display the winning screen.
             isGameFinished = True
             for card in self.cardButtons:
                 if card.isCardRevlead() == False:

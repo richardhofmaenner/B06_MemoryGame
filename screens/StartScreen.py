@@ -9,11 +9,13 @@ class StartScreen():
     startScreenWindow = None
 
     def __init__(self):
+        # create the main menu window
         self.startScreenWindow = tk.Tk()
         self.startScreenWindow.title("Main Menu")
         self.startScreenWindow.geometry("600x400")
         self.startScreenWindow.configure(background=style.mainBgColor)
 
+        # create the grid for position the widget
         for x in range(5):
             self.startScreenWindow.rowconfigure(x, weight=1)
 

@@ -26,10 +26,5 @@ class MultiGameScreen():
             photo = photo.resize((150, 150))
             photo = ImageTk.PhotoImage(photo)
            
-           
-            # create the cards on the game board
-        for i, image in enumerate(Image):
-
-            # calculate the row and column of our game field (4x4 field)
             row = 10
             column = 10

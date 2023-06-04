@@ -13,7 +13,7 @@ class MultiGameScreen():
         self.MultiGameScreenWindow.geometry("600x400")
         self.MultiGameScreenWindow.configure(background=style.mainBgColor)
 
-        guideLabel = tk.Label(self.MultiGameScreenWindow, text=" The Game <Mutliplayer> is under construction", **style.textStyle)
+        guideLabel = tk.Label(self.MultiGameScreenWindow, text="The Game <Mutliplayer> is under construction", **style.textStyle)
         guideLabel.grid(row=2, column=1, sticky="nsew")
         
         allImages = os.listdir("images/MultiPlayer")
@@ -24,11 +24,11 @@ class MultiGameScreen():
 
             imageLabel = tk.Label(self.MultiGameScreenWindow, image=photo)
             imageLabel.image = photo
-            imageLabel.grid(row=i+5, column=i+1, sticky="nsew")
+            imageLabel.grid(row=i+1, column=i+1, sticky="nsew")
 
         # Anpassung der Zeilen- und Spaltengrößen an den Bildschirm
         self.MultiGameScreenWindow.grid_rowconfigure(0, weight=1)
         self.MultiGameScreenWindow.grid_rowconfigure(1, weight=1)
-        self.MultiGameScreenWindow.grid_rowconfigure(len(allImages)+5, weight=1)
+        self.MultiGameScreenWindow.grid_rowconfigure(len(allImages)+2, weight=1)
         self.MultiGameScreenWindow.grid_columnconfigure(0, weight=1)
         self.MultiGameScreenWindow.grid_columnconfigure(len(allImages)+1, weight=1)

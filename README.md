@@ -9,3 +9,10 @@ This is a simple memory game. The goal is to match all the cards in the least am
 3. If the cards match, they will stay revealed.
 4. If the cards do not match, they will flip back over.
 5. Repeat steps 1-4 until all cards are matched.
+
+
+## Dependencies
+
+You will have to have installed the following dependencies to run this game:
+1. pillow (`pip install pillow`)
+2. tkinter

@@ -17,7 +17,7 @@ class MultiGameScreen():
         self.MultiGameScreenWindow.configure(background=style.mainBgColor)
 
         guideLabel = tk.Label(self.MultiGameScreenWindow, text="Mutliplayer ist under contruction", **style.textStyle)
-        guideLabel.grid(row=5, column=1)
+        guideLabel.grid(row=5, column=5)
         
         for i in range(1):
             allImages = os.listdir("images/gameCards")

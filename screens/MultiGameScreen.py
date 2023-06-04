@@ -1,8 +1,5 @@
 import os
 import tkinter as tk
-import time
-import tkinter as tk
-from classes.Card import Card
 import config.stylings as style
 from PIL import Image, ImageTk
 
@@ -20,7 +17,7 @@ class MultiGameScreen():
         guideLabel.grid(row=5, column=5)
         
         for i in range(1):
-            allImages = os.listdir("images/gameCards")
+            allImages = os.listdir("images/MultiPlayer")
             imageName = allImages[i]
             photo = Image.open(f"images/MultiPlayer/{imageName}")
             photo = photo.resize((150, 150))

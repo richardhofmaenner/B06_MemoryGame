@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import ttk
 import config.stylings as style
 from screens.GameScreen import GameScreen
 from screens.HelpScreen import HelpScreen

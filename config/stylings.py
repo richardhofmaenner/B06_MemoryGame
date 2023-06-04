@@ -1,5 +1,3 @@
-import tkinter as tk
-
 mainBgColor = '#2C2C2C'
 mainFgColor = '#FFFFFF'
 

@@ -22,7 +22,7 @@ class MultiGameScreen():
         for i in range(1):
             allImages = os.listdir("images/gameCards")
             imageName = allImages[i]
-            photo = Image.open(f"images/Multipalyer/{imageName}")
+            photo = Image.open(f"images/MultiPlayer/{imageName}")
             photo = photo.resize((150, 150))
             photo = ImageTk.PhotoImage(photo)
             photo.grid(row=10, column=10)

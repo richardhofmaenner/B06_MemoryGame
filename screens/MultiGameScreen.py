@@ -14,7 +14,7 @@ class MultiGameScreen():
         self.MultiGameScreenWindow.configure(background=style.mainBgColor)
 
         guideLabel = tk.Label(self.MultiGameScreenWindow, text=" The Game <Mutliplayer> ist under contruction", **style.textStyle)
-        guideLabel.grid(row=5, column=5)
+        guideLabel.grid(row=2, column=1)
         
         allImages = os.listdir("images/MultiPlayer")
         for i, imageName in enumerate(allImages):
@@ -23,5 +23,5 @@ class MultiGameScreen():
             photo = ImageTk.PhotoImage(photo)
 
             imageLabel = tk.Label(self.MultiGameScreenWindow, image=photo)
-            imageLabel.image = photo  # Speichern Sie eine Referenz auf das Bildobjekt, um es anzuzeigen
-            imageLabel.grid(row=10, column=10)
+            imageLabel.image = photo
+            imageLabel.grid(row=3, column=i+1)

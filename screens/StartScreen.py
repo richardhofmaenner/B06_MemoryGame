@@ -2,6 +2,7 @@ import tkinter as tk
 import config.stylings as style
 from screens.GameScreen import GameScreen
 from screens.HelpScreen import HelpScreen
+from screens.MultiGameScreen import MultiGameScreen
 
 
 class StartScreen():
@@ -45,6 +46,10 @@ class StartScreen():
     def openGameScreen(self):
         self.startScreenWindow.destroy()
         GameScreen()
+        
+    def openMultiGameScreen(self):
+        self.startScreenWindow.destroy()
+        MultiGameScreen()
 
     def closeStartScreen(self):
         self.startScreenWindow.destroy()

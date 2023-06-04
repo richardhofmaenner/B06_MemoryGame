@@ -32,3 +32,9 @@ class MultiGameScreen():
         self.MultiGameScreenWindow.grid_rowconfigure(len(allImages)+2, weight=1)
         self.MultiGameScreenWindow.grid_columnconfigure(0, weight=1)
         self.MultiGameScreenWindow.grid_columnconfigure(len(allImages)+1, weight=1)
+        
+        quitButton = tk.Button(
+            self.MultiGameScreenWindow, text="Quit", **style.buttonStyle,
+            command=lambda: self.MultiGameScreenWindow.destroy(),
+        )
+        quitButton.grid(row=6, column=6)

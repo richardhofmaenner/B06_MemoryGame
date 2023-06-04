@@ -16,7 +16,7 @@ class MultiGameScreen():
         self.MultiGameScreenWindow.geometry("600x400")
         self.MultiGameScreenWindow.configure(background=style.mainBgColor)
 
-        guideLabel = tk.Label(self.MultiGameScreenWindow, text="Mutliplayer ist under contruction", **style.textStyle)
+        guideLabel = tk.Label(self.MultiGameScreenWindow, text=" The Game <Mutliplayer> ist under contruction", **style.textStyle)
         guideLabel.grid(row=5, column=5)
         
         for i in range(1):
@@ -25,3 +25,4 @@ class MultiGameScreen():
             photo = Image.open(f"images/Multipalyer/{imageName}")
             photo = photo.resize((150, 150))
             photo = ImageTk.PhotoImage(photo)
+            photo.grid(row=10, column=10)

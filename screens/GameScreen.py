@@ -2,11 +2,9 @@ import os
 import random
 import time
 import tkinter as tk
-from tkinter import ttk
 from classes.Card import Card
 import config.stylings as style
 from PIL import Image, ImageTk
-from functools import partial
 
 from screens.WinnerScreen import WinnerScreen
 

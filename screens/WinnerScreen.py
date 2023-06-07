@@ -7,7 +7,7 @@ class WinnerScreen():
 
     winnerScreenWindow = None
 
-    def __init__(self, numberOfClicks, ):           # timetext wie einfügen?
+    def __init__(self, numberOfClicks):           # elapsedTime ##timetext wie einfügen?
         # create the winner screen window
         self.winnerScreenWindow = tk.Tk()
         self.winnerScreenWindow.title("You have actually won this game!")
@@ -23,13 +23,9 @@ class WinnerScreen():
 
         textLabel = tk.Label(
             contentFrame, 
-            text=f"You needed {numberOfClicks} tries to win this game.",
+            text=f"You needed {numberOfClicks} tries to win this game.", ##\nElapsed Time: {elapsedTime:.2f} seconds.
             **style.textStyle
             )
-        #textLabel = tk.Label(                                  ## wie zeitdauer anzeigen lassen?
-        #    contentFrame, 
-        #    text=f"You completed the game in {timeText}.",
-        #    **style.textStyle
-        #)
+       
         textLabel.pack()
 

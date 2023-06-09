@@ -23,10 +23,24 @@ class GameScreen():
         # create the game window
         self.gameWindow = tk.Tk()
         self.gameWindow.title("Game Screen")
-        self.gameWindow.geometry("800x600")
         self.gameWindow.resizable(False, False)
-        self.gameWindow.minsize(800, 600)
         self.gameWindow.configure(background=style.mainBgColor)
+        
+        # get the screen size
+        screen_width = self.gameWindow.winfo_screenwidth()
+        screen_height = self.gameWindow.winfo_screenheight()
+
+        # set the window size
+        window_width = 800
+        window_height = 600
+        
+        # set the window position
+        x = (screen_width - window_width) // 2
+        y = (screen_height - window_height) // 2
+
+        # set the window geometry
+        self.gameWindow.geometry(f"{window_width}x{window_height}+{x}+{y}")
+        
 
         # create the grid for positioning the widgets
         for x in range(6):
@@ -83,8 +97,19 @@ class GameScreen():
         self.triesLabel = tk.Label(
             self.gameWindow, text="Total tries: 0", height=4, background=style.mainBgColor,fg=style.mainFgColor
         )
-        self.triesLabel.grid(row=0, column=5)
+        self.triesLabel.grid(row=0, column=6)
+        
+        # Button to restart the game 
+        restartButton = tk.Button(
+            self.gameWindow, text="Restart", **style.buttonStyle,
+            command= self.restartGame,
+        )
+        restartButton.grid(row=4, column=6, sticky="e")
 
+    def restartGame(self):
+        self.gameWindow.destroy()
+        GameScreen()
+        
         self.gameWindow.mainloop()
 
     def get_clicks_text(self):
@@ -119,4 +144,28 @@ class GameScreen():
                     isGameFinished = False
             
             if isGameFinished:
-                WinnerScreen(self.clicks)
+                sub = tk.Toplevel(self.gameWindow)
+                sub.title("Winner")
+                
+                # get the screen size
+                screen_width = sub.winfo_screenwidth()
+                screen_height = sub.winfo_screenheight()
+
+                # set the window size
+                window_width = 300
+                window_height = 200
+                
+                # set the window position
+                x = (screen_width - window_width) // 2
+                y = (screen_height - window_height) // 2
+                
+                
+
+                # set the window geometry
+                sub.geometry(f"{window_width}x{window_height}+{x}+{y}")
+                
+                sub.resizable(False, False)
+                sub.configure(background=style.mainBgColor)
+                tk.Label(sub, text="You won!", height=4, background=style.mainBgColor, fg=style.mainFgColor).pack()
+                
+

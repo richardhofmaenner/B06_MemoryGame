@@ -13,8 +13,22 @@ class StartScreen():
         # create the main menu window
         self.startScreenWindow = tk.Tk()
         self.startScreenWindow.title("Main Menu")
-        self.startScreenWindow.geometry("600x400")
         self.startScreenWindow.configure(background=style.mainBgColor)
+        
+        # get the screen size
+        screen_width = self.startScreenWindow.winfo_screenwidth()
+        screen_height = self.startScreenWindow.winfo_screenheight()
+
+        # set the window size
+        window_width = 600
+        window_height = 400
+        
+        # set the window position
+        x = (screen_width - window_width) // 2
+        y = (screen_height - window_height) // 2
+
+        # set the window geometry
+        self.startScreenWindow.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
         # create the grid for position the widget
         for x in range(5):
@@ -59,4 +73,6 @@ class StartScreen():
         self.startScreenWindow.destroy()
 
     def openHelpScreen(self):
+        self.startScreenWindow.destroy()
         HelpScreen()
+

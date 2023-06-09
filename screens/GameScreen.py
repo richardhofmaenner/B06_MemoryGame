@@ -6,6 +6,7 @@ from classes.Card import Card
 import config.stylings as style
 from PIL import Image, ImageTk
 
+import screens.StartScreen
 from screens.WinnerScreen import WinnerScreen
 
 
@@ -29,10 +30,23 @@ class GameScreen():
         # create the game window
         self.gameWindow = tk.Tk()
         self.gameWindow.title("Game Screen")
-        self.gameWindow.geometry("800x600")
         self.gameWindow.resizable(False, False)
-        self.gameWindow.minsize(800, 600)
         self.gameWindow.configure(background=style.mainBgColor)
+        
+        # get the screen size
+        screen_width = self.gameWindow.winfo_screenwidth()
+        screen_height = self.gameWindow.winfo_screenheight()
+
+        # set the window size
+        window_width = 800
+        window_height = 600
+        
+        # set the window position
+        x = (screen_width - window_width) // 2
+        y = (screen_height - window_height) // 2
+
+        # set the window geometry
+        self.gameWindow.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
         # create the grid for positioning the widgets
         for x in range(6):
@@ -81,21 +95,85 @@ class GameScreen():
 
         quitButton = tk.Button(
             self.gameWindow, text="Quit", **style.buttonStyle,
-            command=lambda: self.gameWindow.destroy(),
+            command=lambda: self.quitPopUp(),
         )
         quitButton.grid(row=6, column=6)
-
+        
         # label for displaying the count of tries to win the game.
         self.triesLabel = tk.Label(
             self.gameWindow, text="Total tries: 0", height=4, background=style.mainBgColor,fg=style.mainFgColor
         )
-        self.triesLabel.grid(row=0, column=5)
-
+        self.triesLabel.grid(row=0, column=6)
+        
+        # Button to restart the game 
+        restartButton = tk.Button(
+            self.gameWindow, text="Restart", **style.buttonStyle,
+            command= self.restartGame,
+        )
+        restartButton.grid(row=4, column=6, sticky="e")
+        
         # Start der Zeitaktualisierung
         self.updateTime()
-
         self.gameWindow.mainloop()
 
+    def restartGame(self):
+    # Reset game state
+        self.clicks = 0
+        self.selectedCards = []
+        self.startTime = time.time()
+        self.endTime = None
+
+        # Reset card buttons
+        for card in self.cardButtons:
+            card.resetCard()
+
+        # Update tries label
+        self.triesLabel.config(text="Total tries: 0")
+
+        # Start the game loop
+        self.gameWindow.mainloop()
+
+    def get_clicks_text(self):
+        return f"Total Clicks: {self.clicks}"
+    
+    def backToStartScreen(self):
+        self.gameWindow.destroy()
+        screens.StartScreen.StartScreen()
+        
+    
+    def quitPopUp(self):
+            popup = tk.Toplevel(self.gameWindow)
+            popup.title("Quit")
+            
+            # get the screen size
+            screen_width = popup.winfo_screenwidth()
+            screen_height = popup.winfo_screenheight()
+
+            # set the window size
+            window_width = 200
+            window_height = 100
+            
+            # set the window position
+            x = (screen_width - window_width) // 2
+            y = (screen_height - window_height) // 2
+
+            # set the window geometry
+            popup.geometry(f"{window_width}x{window_height}+{x}+{y}")
+            
+            label = tk.Label(popup, text="Are you sure you want to quit?")
+            label.grid(row=0, column=2, columnspan=2, padx=20, pady=10)
+            
+            menuButton = tk.Button(popup, text="Main Menu", command= self.backToStartScreen, **style.smallButtonStyle)
+            menuButton.grid(row=1, column=2, padx=20, pady=20)
+                
+            quitButton = tk.Button(popup, text="Quit", command=self.gameWindow.destroy, **style.smallButtonStyle)
+            quitButton.grid(row=1, column=3, padx=20, pady=25)
+
+            # Start der Zeitaktualisierung
+
+
+
+    
     def updateTime(self):
         if self.endTime is None:  # Wenn das Spiel noch läuft
             elapsedTime = time.time() - self.startTime  # Berechnung der verstrichenen Zeit
@@ -147,7 +225,31 @@ class GameScreen():
                     isGameFinished = False
             
             if isGameFinished:
-                self.endTime = time.time()  # Zeit stoppen
-                elapsedTime = self.endTime - self.startTime  # Berechnung der verstrichenen Zeit
-                WinnerScreen(self.clicks, self.timeText)
+                sub = tk.Toplevel(self.gameWindow)
+                sub.title("Winner")
                 
+                # get the screen size
+                screen_width = sub.winfo_screenwidth()
+                screen_height = sub.winfo_screenheight()
+
+                # set the window size
+                window_width = 300
+                window_height = 200
+                
+                # set the window position
+                x = (screen_width - window_width) // 2
+                y = (screen_height - window_height) // 2
+                
+                
+
+                # set the window geometry
+                sub.geometry(f"{window_width}x{window_height}+{x}+{y}")
+                
+                sub.resizable(False, False)
+                sub.configure(background=style.mainBgColor)
+                tk.Label(sub, text="You won!", height= 8, background=style.mainBgColor, fg=style.mainFgColor).pack()
+                tk.Label(sub, text=f"Tries needed: {self.clicks}", height= 2, background=style.mainBgColor, fg=style.mainFgColor).pack()
+                tk.Label(sub, text=f"{self.timeText}", height= 2, background=style.mainBgColor, fg=style.mainFgColor).pack()
+
+                
+

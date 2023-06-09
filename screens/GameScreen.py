@@ -19,6 +19,7 @@ class GameScreen():
     cardButtons = []
     selectedCards = []
     endTime = None
+    timeText = None
 
     def __init__(self):
         
@@ -100,16 +101,16 @@ class GameScreen():
             elapsedTime = time.time() - self.startTime  # Berechnung der verstrichenen Zeit
             minutes = int(elapsedTime // 60)
             seconds = int(elapsedTime % 60)
-            timeText = f"Time: {minutes:02d}:{seconds:02d}"
+            self.timeText = f"Time: {minutes:02d}:{seconds:02d}"
             self.gameWindow.after(1000, self.updateTime)  # Aktualisierung alle 1 Sekunde
-            self.triesLabel.config(text=f"Total tries: {self.clicks}\n{timeText}")
+            self.triesLabel.config(text=f"Total tries: {self.clicks}\n{self.timeText}")
             self.triesLabel.update()
         else:
             # Wenn das Spiel beendet wurde
             elapsedTime = self.endTime - self.startTime  # Berechnung der Gesamtzeit
             minutes = int(elapsedTime // 60)
             seconds = int(elapsedTime % 60)
-            timeText = f"Time: {minutes:02d}:{seconds:02d}"
+            self.timeText = f"Time: {minutes:02d}:{seconds:02d}"
             #self.triesLabel.config(text=f"Total tries: {self.clicks}\n{timeText}\n\nCongratulations!\nYou completed the game in {minutes:02d}:{seconds:02d}.")
             #self.triesLabel.update()
 
@@ -148,5 +149,5 @@ class GameScreen():
             if isGameFinished:
                 self.endTime = time.time()  # Zeit stoppen
                 elapsedTime = self.endTime - self.startTime  # Berechnung der verstrichenen Zeit
-                WinnerScreen(self.clicks)
+                WinnerScreen(self.clicks, self.timeText)
                 

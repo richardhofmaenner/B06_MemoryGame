@@ -1,6 +1,7 @@
 import tkinter as tk
 import config.stylings as style
 import screens.StartScreen
+import screens.StartScreen
 
 
 class HelpScreen():
@@ -17,7 +18,7 @@ class HelpScreen():
         screen_height = self.helpScreenWindow.winfo_screenheight()
 
         window_width = 600
-        window_height = 250
+        window_height = 400
         x = (screen_width - window_width) // 2
         y = (screen_height - window_height) // 2
 

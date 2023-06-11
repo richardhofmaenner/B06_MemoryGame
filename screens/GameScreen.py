@@ -47,6 +47,7 @@ class GameScreen():
 
         # set the window geometry
         self.gameWindow.geometry(f"{window_width}x{window_height}+{x}+{y}")
+        
 
         # create the grid for positioning the widgets
         for x in range(6):
@@ -111,26 +112,11 @@ class GameScreen():
             command= self.restartGame,
         )
         restartButton.grid(row=4, column=6, sticky="e")
-        
-        # Start der Zeitaktualisierung
-        self.updateTime()
-        self.gameWindow.mainloop()
 
     def restartGame(self):
-    # Reset game state
-        self.clicks = 0
-        self.selectedCards = []
-        self.startTime = time.time()
-        self.endTime = None
-
-        # Reset card buttons
-        for card in self.cardButtons:
-            card.resetCard()
-
-        # Update tries label
-        self.triesLabel.config(text="Total tries: 0")
-
-        # Start the game loop
+        self.gameWindow.destroy()
+        GameScreen()
+        
         self.gameWindow.mainloop()
 
     def get_clicks_text(self):

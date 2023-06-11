@@ -27,9 +27,13 @@ buttonStyle = {
     'cursor': 'hand2'
 }
 
-smallButtonStyle = {
+textStyle= {
+    'font': ('Modern', 15, 'normal'),
     'bg': mainBgColor,
     'fg': mainFgColor,
+    'padx': 15,
+    'pady': 10,
+    'borderwidth': 0,,
     'borderwidth': 0,
 }
 

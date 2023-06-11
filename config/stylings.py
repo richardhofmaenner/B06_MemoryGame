@@ -1,28 +1,35 @@
-mainBgColor = '#2C2C2C'
-mainFgColor = '#FFFFFF'
+mainBgColor = '#FFDEAD'
+mainFgColor = '#000000'
 
 h1Style = {
-    'font': ('Helvetica', 25, 'bold'),
+    'font': ('Verdana', 15, 'bold'),
+    'bg': mainBgColor,
+    'fg': mainFgColor,
+    'borderwidth': '0'
+}
+
+textStyle = {
+    'font': ('Verdana', 10, 'normal'),
     'bg': mainBgColor,
     'fg': mainFgColor,
     'borderwidth': '0'
 }
 
 buttonStyle = {
-    'font': ('Modern', 15, 'bold'), 
-    'bg': '#c71585', 
-    'fg': '#999999',
+    'font': ('Arial', 15, 'bold'), 
+    'bg': '#FFFFFF', 
+    'fg': '#000000',
     'borderwidth': 0,
-    'activebackground': '#ed0b0b', 
-    'activeforeground': '#c71585', 
+    'activebackground': '#000000', 
+    'activeforeground': '#FFFFFF', 
     'padx': 15,
     'pady': 10,
     'cursor': 'hand2'
 }
 
-textStyle= {
-    'font': ('Modern', 15, 'normal'),
+smallButtonStyle = {
     'bg': mainBgColor,
-    'fg': mainFgColor
+    'fg': mainFgColor,
+    'borderwidth': 0,
 }
 

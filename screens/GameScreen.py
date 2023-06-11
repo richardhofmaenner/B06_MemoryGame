@@ -7,8 +7,6 @@ import config.stylings as style
 from PIL import Image, ImageTk
 
 import screens.StartScreen
-from screens.WinnerScreen import WinnerScreen
-
 
 class GameScreen():
 
@@ -106,32 +104,33 @@ class GameScreen():
         self.triesLabel.grid(row=0, column=6)
         
         # Button to restart the game 
-        restartButton = tk.Button(
-            self.gameWindow, text="Restart", **style.buttonStyle,
-            command= self.restartGame,
-        )
-        restartButton.grid(row=4, column=6, sticky="e")
+        # restartButton = tk.Button(
+        #     self.gameWindow, text="Restart", **style.buttonStyle,
+        #     command= self.restartGame,
+        # )
+        # restartButton.grid(row=4, column=6, sticky="e")
         
         # Start der Zeitaktualisierung
         self.updateTime()
         self.gameWindow.mainloop()
 
-    def restartGame(self):
-    # Reset game state
-        self.clicks = 0
-        self.selectedCards = []
-        self.startTime = time.time()
-        self.endTime = None
+    # Didn't work well...
+    # def restartGame(self):
+    # # Reset game state
+    #     self.clicks = 0
+    #     self.selectedCards = []
+    #     self.startTime = time.time()
+    #     self.endTime = None
 
-        # Reset card buttons
-        for card in self.cardButtons:
-            card.resetCard()
+    #     # Reset card buttons
+    #     for card in self.cardButtons:
+    #         card.resetCard()
 
-        # Update tries label
-        self.triesLabel.config(text="Total tries: 0")
+    #     # Update tries label
+    #     self.triesLabel.config(text="Total tries: 0")
 
-        # Start the game loop
-        self.gameWindow.mainloop()
+    #     # Start the game loop
+    #     self.gameWindow.mainloop()
 
     def get_clicks_text(self):
         return f"Total Clicks: {self.clicks}"
@@ -170,9 +169,6 @@ class GameScreen():
             quitButton.grid(row=1, column=3, padx=20, pady=25)
 
             # Start der Zeitaktualisierung
-
-
-
     
     def updateTime(self):
         if self.endTime is None:  # Wenn das Spiel noch läuft
@@ -247,9 +243,9 @@ class GameScreen():
                 
                 sub.resizable(False, False)
                 sub.configure(background=style.mainBgColor)
-                tk.Label(sub, text="You won!", height= 8, background=style.mainBgColor, fg=style.mainFgColor).pack()
-                tk.Label(sub, text=f"Tries needed: {self.clicks}", height= 2, background=style.mainBgColor, fg=style.mainFgColor).pack()
-                tk.Label(sub, text=f"{self.timeText}", height= 2, background=style.mainBgColor, fg=style.mainFgColor).pack()
+                tk.Label(sub, text="You won!", height= 3, background=style.mainBgColor, fg=style.mainFgColor).pack()
+                tk.Label(sub, text=f"Tries needed: {self.clicks}", height= 1, background=style.mainBgColor, fg=style.mainFgColor).pack()
+                tk.Label(sub, text=f"{self.timeText}", height= 1, background=style.mainBgColor, fg=style.mainFgColor).pack()
 
                 
 
